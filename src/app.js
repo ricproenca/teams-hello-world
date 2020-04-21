@@ -16,7 +16,7 @@ var messagingExtension = require('./messaging-extension');
 messagingExtension.setup();
 
 // Deciding which port to use
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 3333;
 
 // Start our nodejs app
 app.listen(port, function() {
