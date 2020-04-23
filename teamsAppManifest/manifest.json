@@ -10,6 +10,10 @@
 		"privacyUrl": "https://messaging-extension-action.herokuapp.com/privacy",
 		"termsOfUseUrl": "https://messaging-extension-action.herokuapp.com/terms"
 	},
+	"icons": {
+		"color": "color.png",
+		"outline": "outline.png"
+	},
 	"name": {
 		"short": "Action Messaging Extension",
 		"full": "Action Based Messaging Extension Experiment"
@@ -18,21 +22,20 @@
 		"short": "Sample demonstrating an Action Based Messaging Extension",
 		"full": "Sample Action Messaging Extension built with the Bot Builder SDK"
 	},
-	"icons": {
-		"outline": "icon-outline.png",
-		"color": "icon-color.png"
-	},
 	"accentColor": "#FFFFFF",
 	"composeExtensions": [
 		{
 			"botId": "43021188-3f0c-40f3-b121-813ce53be2bf",
+			"canUpdateConfiguration": false,
 			"commands": [
 				{
 					"id": "createCard",
 					"type": "action",
-					"context": ["compose"],
-					"description": "Command to run action to create a Card from Compose Box",
 					"title": "Create Card",
+					"description": "Command to run action to create a Card from Compose Box",
+					"initialRun": false,
+					"fetchTask": false,
+					"context": ["compose"],
 					"parameters": [
 						{
 							"name": "title",
@@ -57,9 +60,11 @@
 				{
 					"id": "shareMessage",
 					"type": "action",
-					"context": ["message"],
-					"description": "Test command to run action on message context (message sharing)",
 					"title": "Share Message",
+					"description": "Test command to run action on message context (message sharing)",
+					"initialRun": false,
+					"fetchTask": false,
+					"context": ["message"],
 					"parameters": [
 						{
 							"name": "includeImage",
@@ -72,5 +77,6 @@
 			]
 		}
 	],
-	"permissions": ["identity", "messageTeamMembers"]
+	"permissions": ["identity", "messageTeamMembers"],
+	"validDomains": ["herokuapp.com", "messaging-extension-action.herokuapp.com"]
 }

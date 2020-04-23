@@ -47,12 +47,13 @@ const bot = new TeamsMessagingExtensionsActionBot();
 
 // Create HTTP server.
 const server = restify.createServer();
-server.listen(process.env.port || process.env.PORT || 3978, function () {
+server.listen(process.env.port || process.env.PORT || 80, function () {
 	console.log(`\n${server.name} listening to ${server.url}`);
 });
 
 // Listen for incoming requests.
 server.post('/api/messages', (req, res) => {
+	console.log('/api/messages', JSON.stringify(req));
 	adapter.processActivity(req, res, async context => {
 		await bot.run(context);
 	});
